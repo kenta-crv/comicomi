@@ -14,19 +14,34 @@ br
           = @member.email
       tr
         th
+          | 残りポイント
+        td
+          | #{@member.point.to_s}ポイント
+      tr
+        th
+          | ご利用ガイド
+        td
+          = link_to "ご利用前にお読み下さい", "/question", class:"btn btn-success"
+      tr
+        th
+          | 参画社ページ
+        td
+          = link_to "ランディングページへ", "/guide", class:"btn btn-success"
+      tr
+        th
           | 企業情報編集
         td
-          = link_to "企業情報編集", edit_company_path, class:"btn btn-danger"
+          = link_to "企業情報編集", edit_company_path, class:"btn btn-success"
       tr
         th
           | ポイント購入
         td
-          = link_to "決済画面へ進む", pay_companies_path(reload: true), class:"btn btn-danger"
+          = link_to "決済画面へ進む", pay_companies_path(reload: true), class:"btn btn-success"
       tr
         th
-          | 残りポイント
+          | お問い合わせ
         td
-          | #{@member.point.to_s}ポイント
+          = link_to "お問い合わせはこちら", "/contact", class:"btn btn-success", :target=>["_blank"]
 
     br
-    = link_to "アカウント情報編集", edit_member_registration_path, class:"btn btn-danger"
+    = link_to "アカウント情報編集", edit_member_registration_path, class:"btn btn-success"

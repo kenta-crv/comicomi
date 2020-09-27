@@ -14,4 +14,7 @@ class TopController < ApplicationController
   def co
   end
 
+  def question
+  end
+
 end

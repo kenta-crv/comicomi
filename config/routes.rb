@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+
   #管理者アカウント
   devise_for :admins, controllers: {
     registrations: 'admins/registrations',
@@ -54,7 +52,7 @@ Rails.application.routes.draw do
   get 'special' => 'top#special'
   get 'faq' => 'top#faq'
   get 'co' => 'top#co'
-
+  get 'question' => 'top#question'
   #企業側アカウント
   resources :companies do
     collection do

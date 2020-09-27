@@ -15,11 +15,21 @@ class Members::RegistrationsController < Devise::RegistrationsController #devise
   #def after_inactive_sign_up_path_for(resource) # 以下コメントアウトを外してよしなに追加
   #  members_thanks_path
   #end
-  #def create
-  #  super do
-  #    resource.update(confirmed_at: Time .now.utc)
-  #  end
-  #end
+  def create
+    super do
+      resource.update(confirmed_at: Time .now.utc)
+    end
+  end
+
+  #登録時のスキップ機能
+def skip_confirmation!
+  self.confirmed_at = Time.now.utc
+end
+
+#更新時のスキップ機能
+def skip_reconfirmation!
+  @bypass_confirmation_postpone = true
+end
 
   private
   def configure_permitted_parameters

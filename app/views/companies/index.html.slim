@@ -1,25 +1,32 @@
-.row
   br
   br
-  - @companies.each do |company|
-   .row
-    .col-xs-1
-    .col-xs-3
-      = image_tag company.image.to_s, width:"100%"
-    .col-xs-7.store_index
-      = link_to company.company, company_path(company), class:"store"
-      br
+  table.company.lists_index
+   tr
+     th 会社名
+     th 電話番号
+     th メールアドレス
+     th 住所
+     th
+   - @companies.each do |company|
+    tr
+     td
+      = link_to company.company, company_path(company)
+     td
+      = company.tel_front
+      = company.tel_middle
+      = company.tel_back
+     td
+      = company.mail
+     td
       -if company.prefecture.present?
-       = link_to company.prefecture, company_path(company), class:"address"
-       = link_to company.city, company_path(company), class:"address"
-       = link_to company.town, company_path(company), class:"address"
-       = link_to company.town_number, company_path(company), class:"address"
-       = link_to company.building, company_path(company), class:"address"
+       = company.prefecture,
+       = company.city
+       = company.town
+       = company.town_number
+       = company.building
+     td
       - if admin_signed_in?
-       = link_to "編集", edit_company_path(company)
-       = link_to "削除", company_path(company) ,method: :delete,  data: { confirm: '本当に削除しますか？'}
+       = link_to "編集", edit_company_path(company) , class:"btn btn-success"
+       = link_to "削除", company_path(company) ,method: :delete,  data: { confirm: '本当に削除しますか？'}, class:"btn btn-success"
       br
-  br
-    hr.line
-    br
-    = paginate(@companies)
+  = paginate(@companies)

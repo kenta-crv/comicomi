@@ -1181,9 +1181,8 @@ nav.globalMenuSp.active {
 	-webkit-transform-origin: 50% 50%;
 	transform-origin: 50% 50%;
 }
-.field_with_errors {
-  @extend .has-error;
-}
+
+
 
 .problem {
   margin:10px;
@@ -1270,4 +1269,13 @@ nav.globalMenuSp.active {
 
 .user_show_container {
   margin: 20px 60px;
+}
+
+.lists_index {
+  font-size:16px;
+  padding:0 80px;
+  a {
+    text-decoration: none;
+    color:black;
+  }
 }

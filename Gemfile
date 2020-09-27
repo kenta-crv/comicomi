@@ -94,7 +94,3 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 
 gem 'pry-rails'
-
-#開発環境でメール確認
-gem 'letter_opener'
-gem 'letter_opener_web'
