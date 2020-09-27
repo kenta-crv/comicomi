@@ -117,6 +117,10 @@ class EstimatesController < ApplicationController
   end
 
   def double_email
+    # userがいるか
+    if current_user
+      return false
+    end
     # 同じメールアドレスの人がいるか
     user = User.find_by(email: estimate_params[:email])
     if user.present?
