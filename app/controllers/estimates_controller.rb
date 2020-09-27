@@ -13,7 +13,7 @@ class EstimatesController < ApplicationController
 
   def confirm
     @estimate = Estimate.new(estimate_params)
-    render :new if @estimate.invalid? || invalid_user 
+    render :new if @estimate.invalid? || invalid_user || double_email
   end
 
   def thanks
